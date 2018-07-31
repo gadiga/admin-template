@@ -2,11 +2,24 @@
   <div class="card-header">
     IEX Trading chart [{{ stockName }} - {{ ticker }}]
     <div class="card-header-actions">
-      <input #stockTicker type="text" placeholder="Enter Stock ticker">
+      <!-- <input #stockTicker class="stock-input" type="text" placeholder="Enter Stock ticker">
       <button
        class="btn btn-primary"
        (click)="getDataFor(stockTicker.value)"
-      >Get Stock Chart</button>
+      >Get Stock Chart</button> -->
+      <div class="input-group mb-3">
+        <input #stockTicker
+        type="text"
+        class="form-control"
+        placeholder="Enter stock symbol">
+        <div class="input-group-append">
+          <button
+          class="btn btn-outline-info"
+          (click)="getDataFor(stockTicker.value)"
+          type="button"
+          >Get Stock Chart</button>
+        </div>
+      </div>
     </div>
   </div>
   <div class="card-body">

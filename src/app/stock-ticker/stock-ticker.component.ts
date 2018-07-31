@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Chart } from 'chart.js';
+import { StockFetchService } from './stock-fetch.service';
 
 @Component({
   selector: 'stock-ticker',
@@ -10,7 +10,7 @@ import { Chart } from 'chart.js';
 export class StockTickerComponent implements OnInit {
 
   ticker: string = 'GOOG';
-  stockName: string;
+  stockName: string = 'Loading Chart for ...';
   quote: any[];
   loading: boolean = true;
   chart = [];
@@ -28,18 +28,14 @@ export class StockTickerComponent implements OnInit {
   public lineChartLegend = true;
   public lineChartType = 'line';
 
-  private URL: string = 'https://api.iextrading.com/1.0/stock/' + this.ticker + '/chart';
-  private COURL: string = 'https://api.iextrading.com/1.0/stock/' + this.ticker + '/company';
-
-  constructor(private http: HttpClient) { }
+  constructor(private stockFetchService: StockFetchService) { }
 
   ngOnInit() {
-    setTimeout(()=>this.fetchData());
+    setTimeout(()=>this.fetchData(), 3000);
   }
 
   fetchData() {
-    this.URL = 'https://api.iextrading.com/1.0/stock/' + this.ticker + '/chart';
-    let subscription = this.http.get(this.URL).subscribe((data: any)=>{
+    let subscription = this.stockFetchService.fetchStockChart(this.ticker).subscribe((data: any)=>{
       subscription.unsubscribe();
       this.quote = <any[]>data;
       this.quote.forEach(element => {
@@ -99,8 +95,7 @@ export class StockTickerComponent implements OnInit {
 
     });
 
-    this.COURL = 'https://api.iextrading.com/1.0/stock/' + this.ticker + '/company';
-    let coSubscription  = this.http.get(this.COURL).subscribe((data: any)=>{
+    let coSubscription  = this.stockFetchService.fetchStockInfo(this.ticker).subscribe((data: any)=>{
       subscription.unsubscribe();
       this.ticker = data.symbol;
       this.stockName = data.companyName;      
@@ -117,7 +112,6 @@ export class StockTickerComponent implements OnInit {
     this.lineChartLabels = [];
     this.ticker = stock;
     this.fetchData();
-    console.log(stock);
   }
 
 }
