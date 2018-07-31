@@ -1,13 +1,13 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Chart } from 'chart.js';
 
 @Component({
-  selector: 'yahoo-finance',
-  templateUrl: './yahoo-finance.component.html',
-  styleUrls: ['./yahoo-finance.component.scss']
+  selector: 'stock-ticker',
+  templateUrl: './stock-ticker.component.html',
+  styleUrls: ['./stock-ticker.component.scss']
 })
-export class YahooFinanceComponent implements OnInit, AfterViewInit {
+export class StockTickerComponent implements OnInit {
 
   ticker: string = 'GOOG';
   stockName: string;
@@ -34,10 +34,7 @@ export class YahooFinanceComponent implements OnInit, AfterViewInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-  }
-
-  ngAfterViewInit () {
-    this.fetchData();
+    setTimeout(()=>this.fetchData());
   }
 
   fetchData() {

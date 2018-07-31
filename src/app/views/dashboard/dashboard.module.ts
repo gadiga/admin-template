@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { YahooFinanceComponent } from '../../yahoo-finance/yahoo-finance.component';
+import { StockTickerComponent } from '../../stock-ticker/stock-ticker.component';
 
 @NgModule({
   imports: [
@@ -18,6 +18,6 @@ import { YahooFinanceComponent } from '../../yahoo-finance/yahoo-finance.compone
     ButtonsModule.forRoot(),
     CommonModule
   ],
-  declarations: [ DashboardComponent, YahooFinanceComponent ]
+  declarations: [ DashboardComponent, StockTickerComponent ]
 })
 export class DashboardModule { }

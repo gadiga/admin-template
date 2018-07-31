@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { YahooFinanceComponent } from './yahoo-finance.component';
+import { StockTickerComponent } from './stock-ticker.component';
 
-describe('YahooFinanceComponent', () => {
-  let component: YahooFinanceComponent;
-  let fixture: ComponentFixture<YahooFinanceComponent>;
+describe('StockTickerComponent', () => {
+  let component: StockTickerComponent;
+  let fixture: ComponentFixture<StockTickerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ YahooFinanceComponent ]
+      declarations: [ StockTickerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(YahooFinanceComponent);
+    fixture = TestBed.createComponent(StockTickerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
