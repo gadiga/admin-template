@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-header">
+    IEX Trading chart {{ stockName }} - {{ ticker }}
+    <div class="card-header-actions">
+      <input #stockTicker type="text" placeholder="Enter Stock ticker">
+      <button
+       class="btn btn-primary"
+       (click)="getDataFor(stockTicker.value)"
+      >Get Stock Chart</button>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="chart-wrapper">
+      <canvas id="canvas">{{chart}}</canvas>
+    </div>
+  </div>
+</div>
