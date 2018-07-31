@@ -115,6 +115,8 @@ See [the Releases section of our project](https://github.com/coreui/coreui-free-
 
 ## Creators
 
+**Guru Adiga (added Stock chart to dashboard)**
+
 **Łukasz Holeczek**
 
 * <https://twitter.com/lukaszholeczek>
