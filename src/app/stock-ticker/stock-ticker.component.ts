@@ -96,7 +96,7 @@ export class StockTickerComponent implements OnInit {
     });
 
     let coSubscription  = this.stockFetchService.fetchStockInfo(this.ticker).subscribe((data: any)=>{
-      subscription.unsubscribe();
+      coSubscription.unsubscribe();
       this.ticker = data.symbol;
       this.stockName = data.companyName;      
     });
